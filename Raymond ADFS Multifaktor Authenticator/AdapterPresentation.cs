@@ -26,8 +26,11 @@ namespace Raymond.ADFS_MFA
             this.isPermanentFailure = isPermanentFailure;
         }
 
-        private string message = "";
+        //private string message = "";
         private bool isPermanentFailure;
+
+        private string upn;
+        private string secretKey;
 
         public string GetFormHtml(int lcid)
         {
@@ -38,7 +41,7 @@ namespace Raymond.ADFS_MFA
              * One important thing to note here though; It could very well be the case that a user that is authentication, 
              * is first hitting one server in the farm, enters the PIN and submits the PIN. 
              * This postback to the server could hit another server in the farm. 
-             * Now the context of the logon would be lost.AD FS cannot rely on session state or anything like that. 
+             * Now the context of the logon would be lost. AD FS cannot rely on session state or anything like that. 
              * We need to 'manually' transfer the context of the logon together with the proof data that the customer provided.
              * So if we need to use a form, make sure to include a hidden input element, that contains the context of the request. 
              * This is best done through a constructor that can be called from the BeginAuthentication and TryEndAuthentication methods in the AuthenticationAdapter implementation.
@@ -46,14 +49,7 @@ namespace Raymond.ADFS_MFA
              * This is done through a hidden form field called authMethod. So, whatever you do here, make sure you include at least two form fields; context and authMethod.
              * */
 
-            string buttonContinue = "";
 
-            switch (lcid)
-            {
-                case 1033:  { buttonContinue = "Continue"; break; }
-                case 1044:  { buttonContinue = "Fortsett"; break; }
-                default:    { buttonContinue = "Continue"; break; }
-            }
 
 
             string result = "";
