@@ -5,14 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.IdentityServer.Web.Authentication.External;
 
+
 namespace Raymond.ADFS_MFA
 {
     public class AdapterPresentation : IAdapterPresentation, IAdapterPresentationForm
     {
-        // The IAdapterPresentation interface defines how the Authentication Adapter 'presents' itself to the user.
-        // 
-        // The IAdapterPresentationForm is very much like the IAdapterPresentation, but this interface let's you define what 
-        // and how you want to ask the user for additional authentication. In our example, we want the user to input a PIN in the sign-in page.
+        /* The IAdapterPresentation interface defines how the Authentication Adapter 'presents' itself to the user.
+        * 
+        * The IAdapterPresentationForm is very much like the IAdapterPresentation, but this interface let's you define what 
+        * and how you want to ask the user for additional authentication. In our example, we want the user to input a PIN in the sign-in page.
+        * */
+
+        private string message = "";
+        private bool isPermanentFailure;
+        private string upn;
+        private string secretKey;
+
+
 
         public AdapterPresentation()
         {
@@ -26,11 +35,11 @@ namespace Raymond.ADFS_MFA
             this.isPermanentFailure = isPermanentFailure;
         }
 
-        //private string message = "";
-        private bool isPermanentFailure;
-
-        private string upn;
-        private string secretKey;
+        public AdapterPresentation(string upn = null, string secretKey = null)
+        {
+            this.upn = upn;
+            this.secretKey = secretKey;
+        }
 
         public string GetFormHtml(int lcid)
         {
@@ -49,25 +58,46 @@ namespace Raymond.ADFS_MFA
              * This is done through a hidden form field called authMethod. So, whatever you do here, make sure you include at least two form fields; context and authMethod.
              * */
 
+            // Get the correct template by LCID
+            string htmlTemplate = "";
+            string htmlMessage = "";
 
+            switch(lcid)
+            {
+                case 1033: {    htmlTemplate = Raymond.ADFS_MFA.Properties.Resources.AuthenticationForm_1033;
+                                htmlMessage = Raymond.ADFS_MFA.Properties.Resources.WebForm_1033;
+                                break; }
+                case 1044: {    htmlTemplate = Raymond.ADFS_MFA.Properties.Resources.AuthenticationForm_1044;
+                                htmlMessage = Raymond.ADFS_MFA.Properties.Resources.WebForm_1044;
+                                break; }
+                default:   {    htmlTemplate = Raymond.ADFS_MFA.Properties.Resources.AuthenticationForm_1033;
+                                htmlMessage = Raymond.ADFS_MFA.Properties.Resources.WebForm_1033;
+                                break; }
+            }
+            
 
-
-            string result = "";
             if (!String.IsNullOrEmpty(this.message))
             {
-                result += "<p>" + message + "</p>";
+                htmlTemplate = htmlTemplate.Replace("ERRORMSG", message);
             }
             if (!this.isPermanentFailure)
             {
-                result += "<form method=\"post\" id=\"loginForm\" autocomplete=\"off\">";
-                result += "PIN: <input id=\"pin\" name=\"pin\" type=\"password\" />";
-                result += "<input id=\"context\" type=\"hidden\" name=\"Context\" value=\"%Context%\"/>";
-                result += "<input id=\"authMethod\" type=\"hidden\" name=\"AuthMethod\" value=\"%AuthMethod%\"/>";
-                result += "<input id=\"continueButton\" type=\"submit\" name=\"Continue\" value=\"" + buttonContinue + "\" />";
-                result += "</form>";
+                if (string.IsNullOrEmpty(this.secretKey))
+                {
+                    htmlTemplate = htmlTemplate.Replace("ERRORMSG", "");
+                    htmlTemplate = htmlTemplate.Replace("PICTUREHERE", "");
+                }
+                else
+                {
+                    htmlTemplate = htmlTemplate.Replace("ERRORMSG", "");
+                    int width = 100;
+                    int height = 100;
+
+                    htmlTemplate = htmlTemplate.Replace("PICTUREHERE", String.Format(htmlMessage, width, height, this.upn, this.secretKey));
+                }
             }
 
-            return result;
+            return htmlTemplate;
             
         }
 
@@ -80,7 +110,11 @@ namespace Raymond.ADFS_MFA
              * */
 
             // return string.Empty;
-            return "<meta name=\"author\" content=\"Raymond Andreassen\"><meta name=\"Time\" content=\"" + DateTime.Now.ToShortTimeString() + "\">";
+            return string.Format($"<meta name=\"author\" content=\"UiT MFA - Raymond Andreassen 2017\"> " +
+                   $"<meta name=\"Time\" content=\"{DateTime.Now.ToShortTimeString()}\"> " +
+                   $"<meta name=\"About\" content=\"Raymonds Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider\">" +
+                   $"<meta name=\"LCID\" content=\"{0}\">", lcid);
+                   
         }
 
         public string GetPageTitle(int lcid)

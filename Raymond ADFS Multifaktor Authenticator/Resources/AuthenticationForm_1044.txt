@@ -1,0 +1,32 @@
+
+
+    <script type="text/javascript">
+        function DisableControl(controlId) {
+            document.getElementById(controlId).disabled = true;
+        }
+    </script>
+
+<div id="loginArea">
+ERRORMSG
+ <form method="post" id="loginForm" >
+ <input id="authMethod" type="hidden" name="AuthMethod" value="%AuthMethod%"/>
+ <input id="context" type="hidden" name="Context" value="%Context%"/>
+<div id="titleDiv" class="groupMargin">
+	<h1 id="sectionHeader">Multi-Faktor Autentisering</h1> 
+</div> 
+ PICTUREHERE
+  <label for="challengeQuestionInput" class="block">Skriv koden laget av UiT MFA.</label>
+ <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="6-digit code" />
+ <div id="submissionArea" class="submitMargin">
+ <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="DisableButton(this);return AuthPage.submitAnswer()"/>
+ </div>
+ </form>
+ <div id="intro" class="groupMargin">
+ <p id="supportEmail">Trenger du hjelp? Kontakt Orakelet@uit.no eller 776 44544</p>
+ </div>
+ <script type="text/javascript" language="JavaScript">
+ //<![CDATA[
+ function AuthPage() { }
+ AuthPage.submitAnswer = function () { return true; };
+ //]]>
+ </script></div>

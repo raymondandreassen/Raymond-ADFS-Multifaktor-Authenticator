@@ -81,7 +81,7 @@ namespace Raymond.ADFS_MFA
             * We've touched that interface before. 
             * */
 
-            return new AdapterPresentation(ex.Message, true);
+            return new AdapterPresentation(string.Format("<p>{0}</p>", ex.Message), true);
         }
 
         public IAdapterPresentation TryEndAuthentication(IAuthenticationContext context, IProofData proofData, HttpListenerRequest request, out Claim[] claims)

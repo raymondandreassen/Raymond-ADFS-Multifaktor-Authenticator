@@ -53,6 +53,10 @@ namespace Raymond.ADFS_MFA
              * */
 
             get { return new int[] { 1033, 1044 }; }
+
+            // 1033 - English
+            // 1044 - Norsk bokmål
+            // http://msdn.microsoft.com/en-us/goglobal/bb964664.aspx
         }
 
         public Dictionary<int, string> Descriptions
@@ -69,6 +73,13 @@ namespace Raymond.ADFS_MFA
                 return result;
             }
         }
+
+        //public int ReturnLCID(int lcid)
+        //{
+        //    // Make sure that it is a valid LCID, if not return 1033 - English
+        //    if (AvailableLcids.Contains(lcid)) return lcid;
+        //    else return 1033;
+        //}
 
         public Dictionary<int, string> FriendlyNames
         {
