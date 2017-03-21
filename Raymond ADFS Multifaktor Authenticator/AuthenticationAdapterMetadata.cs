@@ -42,8 +42,7 @@ namespace Raymond.ADFS_MFA
         public string AdminName
         {
             // This is the friendly name of the Authentication Provider, shown to AD FS admins in the AD FS GUI.
-
-            get { return "Raymonds Multifaktor Authentisering"; }
+            get { return "Raymonds (TOTP) Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider"; }
         }
 
         public int[] AvailableLcids
@@ -74,12 +73,6 @@ namespace Raymond.ADFS_MFA
             }
         }
 
-        //public int ReturnLCID(int lcid)
-        //{
-        //    // Make sure that it is a valid LCID, if not return 1033 - English
-        //    if (AvailableLcids.Contains(lcid)) return lcid;
-        //    else return 1033;
-        //}
 
         public Dictionary<int, string> FriendlyNames
         {

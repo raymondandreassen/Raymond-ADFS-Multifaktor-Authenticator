@@ -37,7 +37,23 @@ namespace Raymond.ADFS_MFA
              * together with an appropriate text, to the end-user. That's just what this return value does.
              * */
 
-            return new AdapterPresentation();
+            IAdapterPresentation authPres;
+
+            string upn = identityClaim.Value;
+            string secretKey = TOTPAuthenticator.GetSecretKey(upn);
+            context.Data.Add("upn", upn);
+
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                secretKey = TOTPAuthenticator.GenerateSecretKey();
+                TOTPAuthenticator.SetSecretKey(upn, secretKey);
+                authPres = new AdapterPresentation(upn, secretKey);
+            }
+            else
+            {
+                authPres = new AdapterPresentation();
+            }
+            return authPres;
         }
 
         public bool IsAvailableForUser(Claim identityClaim, IAuthenticationContext context)
@@ -99,20 +115,26 @@ namespace Raymond.ADFS_MFA
              * The method returns a variable of a type that implements IAdapterPresentation. 
              * Typically, when authentication has succeeded you add the proper authentication method claim to the claims out parameter, and return null. 
              * Whenever authentication has failed, you can create a nice error message for the user and return this in the return variable. 
-             * We've already see the IAdapterPresentation interface before, so we'll cover this interface in more detail later on.
              * */
+
+            if (proofData == null || proofData.Properties == null || !proofData.Properties.ContainsKey("ChallengeQuestionAnswer") || context == null || context.Data == null || !context.Data.ContainsKey("upn") || string.IsNullOrEmpty((string)context.Data["upn"]))
+            {
+                throw new ExternalAuthenticationException("No answer found or corrupted context.", context);
+            }
 
             claims = null;
             IAdapterPresentation result = null;
-            string pin = proofData.Properties["pin"].ToString();
-            if (pin == "12345")
+            string upn = (string)context.Data["upn"];
+            string code = (string)proofData.Properties["ChallengeQuestionAnswer"];
+
+            if (TOTPAuthenticator.CheckCode(upn, code))
             {
                 System.Security.Claims.Claim claim = new System.Security.Claims.Claim("http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", "http://schemas.microsoft.com/ws/2012/12/authmethod/otp");
                 claims = new System.Security.Claims.Claim[] { claim };
             }
             else
             {
-                result = new AdapterPresentation("Authentication failed.", false);
+                result = new AdapterPresentation();
             }
             return result;
         }
