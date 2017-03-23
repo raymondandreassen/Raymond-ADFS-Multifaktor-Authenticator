@@ -124,16 +124,22 @@
   <data name="AuthenticationForm_1044" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AuthenticationForm_1044.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Backup22032017" xml:space="preserve">
+    <value>&lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
+&lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
+&lt;br /&gt;
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}"&gt;</value>
+  </data>
   <data name="WebForm_1033" xml:space="preserve">
     <value>&lt;p&gt;Please configure you Authenticator App (Microsoft Verificator, Google Authenticator, et al.) by using the QR code below.&lt;br/&gt;
 &lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Read this for assistanse.&lt;/a&gt;&lt;/p&gt;
 &lt;br /&gt;
-&lt;img width=\"{0}\" height=\"{1}\" src=\"https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}\"&gt;</value>
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}"&gt;</value>
   </data>
   <data name="WebForm_1044" xml:space="preserve">
     <value>&lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
 &lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
-&lt;br /
-&lt;img width=\"{0}\" height=\"{1}\" src=\"https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}\"&gt;</value>
+&lt;br /&gt;
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}"&gt;</value>
   </data>
 </root>

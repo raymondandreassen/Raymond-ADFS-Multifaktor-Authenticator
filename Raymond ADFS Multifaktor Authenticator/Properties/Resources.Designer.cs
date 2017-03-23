@@ -110,10 +110,22 @@ namespace Raymond.ADFS_MFA.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
+        ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
+        ///&lt;br /&gt;
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}&quot;&gt;.
+        /// </summary>
+        internal static string Backup22032017 {
+            get {
+                return ResourceManager.GetString("Backup22032017", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Please configure you Authenticator App (Microsoft Verificator, Google Authenticator, et al.) by using the QR code below.&lt;br/&gt;
         ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Read this for assistanse.&lt;/a&gt;&lt;/p&gt;
         ///&lt;br /&gt;
-        ///&lt;img width=\&quot;{0}\&quot; height=\&quot;{1}\&quot; src=\&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}\&quot;&gt;.
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}&quot;&gt;.
         /// </summary>
         internal static string WebForm_1033 {
             get {
@@ -124,8 +136,8 @@ namespace Raymond.ADFS_MFA.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
         ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
-        ///&lt;br /
-        ///&lt;img width=\&quot;{0}\&quot; height=\&quot;{1}\&quot; src=\&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}\&quot;&gt;.
+        ///&lt;br /&gt;
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}&quot;&gt;.
         /// </summary>
         internal static string WebForm_1044 {
             get {

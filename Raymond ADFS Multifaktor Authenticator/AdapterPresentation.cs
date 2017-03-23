@@ -90,8 +90,9 @@ namespace Raymond.ADFS_MFA
                 else
                 {
                     htmlTemplate = htmlTemplate.Replace("ERRORMSG", "");
-                    int width = 100;
-                    int height = 100;
+
+                    int width = 150;
+                    int height = 150;
 
                     htmlTemplate = htmlTemplate.Replace("PICTUREHERE", String.Format(htmlMessage, width, height, this.upn, this.secretKey));
                 }
@@ -110,10 +111,10 @@ namespace Raymond.ADFS_MFA
              * */
 
             // return string.Empty;
-            return string.Format($"<meta name=\"author\" content=\"UiT MFA - Raymond Andreassen 2017\"> " +
-                   $"<meta name=\"Time\" content=\"{DateTime.Now.ToShortTimeString()}\"> " +
-                   $"<meta name=\"About\" content=\"Raymonds Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider\">" +
-                   $"<meta name=\"LCID\" content=\"{0}\">", lcid);
+            return string.Format($"        <meta name=\"author\" content=\"UiT MFA - Raymond Andreassen 2017\"> \r\n" +
+                   $"        <meta name=\"Time\" content=\"{DateTime.Now.ToShortTimeString()}\"> \r\n" +
+                   $"        <meta name=\"About\" content=\"Raymonds Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider\"> \r\n" +
+                   $"        <meta name=\"LCID\" content=\"{0}\"> \r\n\r\n", lcid);
                    
         }
 
