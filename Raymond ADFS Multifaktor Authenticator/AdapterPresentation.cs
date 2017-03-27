@@ -96,7 +96,7 @@ namespace Raymond.ADFS_MFA
                     int width = 100;
                     int height = 100;
 
-                    htmlSecret = String.Format(htmlSecret, Properties.Resources.SecretName, this.upn, this.secretKey, Properties.Resources.SecretIssuer);
+                    htmlSecret = String.Format(htmlSecret, this.upn, this.secretKey, Properties.Resources.SecretIssuer);
                     // otpauth://totp/UiT Office 365 pålogging:{0}?secret={1}
                     // otpauth://totp/UiT Secure Logon ({0})?secret={1}&issuer={2}&algorithm={3}&digits={4}&period={5}
 

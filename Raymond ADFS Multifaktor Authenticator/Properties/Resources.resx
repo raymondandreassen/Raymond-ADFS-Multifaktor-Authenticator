@@ -142,7 +142,7 @@ otpauth://totp/UiT Secure Logon ({0})?secret={1}&amp;issuer={2}&amp;algorithm={3
     <comment>Not in use</comment>
   </data>
   <data name="SecretIssuer" xml:space="preserve">
-    <value>UiT Secure Login</value>
+    <value>UiT%20Secure%20Login</value>
   </data>
   <data name="SecretName" xml:space="preserve">
     <value />
@@ -152,7 +152,7 @@ otpauth://totp/UiT Secure Logon ({0})?secret={1}&amp;issuer={2}&amp;algorithm={3
     <comment>Not in use</comment>
   </data>
   <data name="WebFormSecret" xml:space="preserve">
-    <value>otpauth://totp/{0}{1}?secret={2}&amp;issuer={3}</value>
+    <value>otpauth://totp/{0}?secret={1}&amp;issuer={2}</value>
     <comment>otpauth://totp/UiT Secure Logon {0}?secret={1}</comment>
   </data>
   <data name="WebForm_1033" xml:space="preserve">

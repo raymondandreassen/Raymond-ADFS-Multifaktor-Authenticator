@@ -143,7 +143,7 @@ namespace Raymond.ADFS_MFA.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UiT Secure Login.
+        ///   Looks up a localized string similar to UiT%20Secure%20Login.
         /// </summary>
         internal static string SecretIssuer {
             get {
@@ -194,7 +194,7 @@ namespace Raymond.ADFS_MFA.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to otpauth://totp/{0}{1}?secret={2}&amp;issuer={3}.
+        ///   Looks up a localized string similar to otpauth://totp/{0}?secret={1}&amp;issuer={2}.
         /// </summary>
         internal static string WebFormSecret {
             get {
