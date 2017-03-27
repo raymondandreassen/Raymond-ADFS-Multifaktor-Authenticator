@@ -128,18 +128,43 @@
     <value>&lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
 &lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
 &lt;br /&gt;
-&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}"&gt;</value>
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A({2})%3Fsecret%3D{3}"&gt;
+&amp;issuer=ACME%20Co&amp;algorithm=SHA1&amp;digits=6&amp;period=30
+
+otpauth://totp/UiT Secure Logon ({0})?secret={1}&amp;issuer={2}&amp;algorithm={3}&amp;digits={4}&amp;period={5}</value>
+  </data>
+  <data name="SecretAlgorithm" xml:space="preserve">
+    <value>SHA256</value>
+    <comment>Not in use</comment>
+  </data>
+  <data name="SecretDigits" xml:space="preserve">
+    <value>6</value>
+    <comment>Not in use</comment>
+  </data>
+  <data name="SecretIssuer" xml:space="preserve">
+    <value>UiT Secure Login</value>
+  </data>
+  <data name="SecretName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SecretPeriode" xml:space="preserve">
+    <value>30</value>
+    <comment>Not in use</comment>
+  </data>
+  <data name="WebFormSecret" xml:space="preserve">
+    <value>otpauth://totp/{0}{1}?secret={2}&amp;issuer={3}</value>
+    <comment>otpauth://totp/UiT Secure Logon {0}?secret={1}</comment>
   </data>
   <data name="WebForm_1033" xml:space="preserve">
-    <value>&lt;p&gt;Please configure you Authenticator App (Microsoft Verificator, Google Authenticator, et al.) by using the QR code below.&lt;br/&gt;
-&lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Read this for assistanse.&lt;/a&gt;&lt;/p&gt;
+    <value>&lt;p&gt;Please configure your Google Authenticator App by using the QR code below.&lt;br/&gt;
+&lt;a href="https://uit.no/Oraklet/"&gt;Read this for assistance.&lt;/a&gt;&lt;/p&gt;
 &lt;br /&gt;
-&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}"&gt;</value>
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl={2}"&gt;</value>
   </data>
   <data name="WebForm_1044" xml:space="preserve">
-    <value>&lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
-&lt;a href="https://uit.no/Oraklet/SomeWhere"&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
+    <value>&lt;p&gt;Vennligst konfigurer din Google Authenticator App ved å bruke QR koden under.&lt;br/&gt;
+&lt;a href="https://uit.no/Oraklet/"&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
 &lt;br /&gt;
-&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}"&gt;</value>
+&lt;img width="{0}" height="{1}" src="https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl={2}"&gt;</value>
   </data>
 </root>

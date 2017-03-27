@@ -62,6 +62,7 @@ namespace Raymond.ADFS_MFA
             string htmlTemplate = "";
             string htmlMessage = "";
 
+
             switch(lcid)
             {
                 case 1033: {    htmlTemplate = Raymond.ADFS_MFA.Properties.Resources.AuthenticationForm_1033;
@@ -90,11 +91,20 @@ namespace Raymond.ADFS_MFA
                 else
                 {
                     htmlTemplate = htmlTemplate.Replace("ERRORMSG", "");
+                    string htmlSecret = Raymond.ADFS_MFA.Properties.Resources.WebFormSecret;
 
-                    int width = 150;
-                    int height = 150;
+                    int width = 100;
+                    int height = 100;
 
-                    htmlTemplate = htmlTemplate.Replace("PICTUREHERE", String.Format(htmlMessage, width, height, this.upn, this.secretKey));
+                    htmlSecret = String.Format(htmlSecret, Properties.Resources.SecretName, this.upn, this.secretKey, Properties.Resources.SecretIssuer);
+                    // otpauth://totp/UiT Office 365 pålogging:{0}?secret={1}
+                    // otpauth://totp/UiT Secure Logon ({0})?secret={1}&issuer={2}&algorithm={3}&digits={4}&period={5}
+
+                    htmlTemplate = htmlTemplate.Replace("PICTUREHERE", String.Format(htmlMessage, width, height, System.Web.HttpUtility.UrlEncode(htmlSecret)));
+
+                    
+                    //htmlSecret = System.Web.HttpUtility.UrlEncode(htmlSecret);
+                    //htmlTemplate = htmlTemplate.Replace("SECRETHERE", htmlSecret);
                 }
             }
 
@@ -113,7 +123,7 @@ namespace Raymond.ADFS_MFA
             // return string.Empty;
             return string.Format($"        <meta name=\"author\" content=\"UiT MFA - Raymond Andreassen 2017\"> \r\n" +
                    $"        <meta name=\"Time\" content=\"{DateTime.Now.ToShortTimeString()}\"> \r\n" +
-                   $"        <meta name=\"About\" content=\"Raymonds Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider\"> \r\n" +
+                   $"        <meta name=\"About\" content=\"UiT Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider\"> \r\n" +
                    $"        <meta name=\"LCID\" content=\"{0}\"> \r\n\r\n", lcid);
                    
         }

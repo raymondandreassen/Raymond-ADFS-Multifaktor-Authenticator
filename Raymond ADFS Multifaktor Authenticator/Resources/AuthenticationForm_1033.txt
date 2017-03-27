@@ -14,14 +14,14 @@ ERRORMSG
 	<h1 id="sectionHeader">Multifactor Authentication</h1> 
 </div> 
  PICTUREHERE
-  <label for="challengeQuestionInput" class="block">Write the code made by UiT MFA.</label>
+  <label for="challengeQuestionInput" class="block">Write the code made by Google Authenticode.</label>
  <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="6-digit code" />
  <div id="submissionArea" class="submitMargin">
  <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="DisableButton(this);return AuthPage.submitAnswer()"/>
  </div>
  </form>
  <div id="intro" class="groupMargin">
- <p id="supportEmail">Do you need any help? Contact Orakelet@uit.no or 776 44544</p>
+ <p id="supportEmail">Do you need any help?<br/>Contact Orakelet@uit.no or 776 44544</p>
  </div>
  <script type="text/javascript" language="JavaScript">
  //<![CDATA[

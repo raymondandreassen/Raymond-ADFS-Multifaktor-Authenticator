@@ -9,3 +9,11 @@ https://blogs.technet.microsoft.com/cloudpfe/2014/10/26/using-time-based-one-tim
 
 http://meyerweb.com/eric/tools/dencoder/
 https://developers.google.com/chart/infographics/docs/overview
+
+
+Basically, it is an implementation of the RFC6238 - TOTP: Time-Based One-Time Password Algorithm spec, 
+which takes the UNIX epoch time in seconds modulo 30, and uses the rounded seconds and a symmetric key to derive a time based hash, 
+and takes some bits from the resulting hash as integer-based PIN.
+
+
+Time-Based (RFC6238) One-Time Password (RFC4226) Authentication Provider

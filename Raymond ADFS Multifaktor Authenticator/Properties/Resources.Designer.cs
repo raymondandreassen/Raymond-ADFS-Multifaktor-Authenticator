@@ -113,7 +113,10 @@ namespace Raymond.ADFS_MFA.Properties {
         ///   Looks up a localized string similar to &lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
         ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
         ///&lt;br /&gt;
-        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A{2}%3Fsecret%3D{3}&quot;&gt;.
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;amp;chld=M%7C0&amp;amp;cht=qr&amp;amp;chl%3Dotpauth%3A%2F%2Ftotp%2FUiT%20MFA%3A({2})%3Fsecret%3D{3}&quot;&gt;
+        ///&amp;issuer=ACME%20Co&amp;algorithm=SHA1&amp;digits=6&amp;period=30
+        ///
+        ///otpauth://totp/UiT Secure Logon ({0})?secret={1}&amp;issuer={2}&amp;a [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Backup22032017 {
             get {
@@ -122,10 +125,55 @@ namespace Raymond.ADFS_MFA.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Please configure you Authenticator App (Microsoft Verificator, Google Authenticator, et al.) by using the QR code below.&lt;br/&gt;
-        ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Read this for assistanse.&lt;/a&gt;&lt;/p&gt;
+        ///   Looks up a localized string similar to SHA256.
+        /// </summary>
+        internal static string SecretAlgorithm {
+            get {
+                return ResourceManager.GetString("SecretAlgorithm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6.
+        /// </summary>
+        internal static string SecretDigits {
+            get {
+                return ResourceManager.GetString("SecretDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UiT Secure Login.
+        /// </summary>
+        internal static string SecretIssuer {
+            get {
+                return ResourceManager.GetString("SecretIssuer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SecretName {
+            get {
+                return ResourceManager.GetString("SecretName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 30.
+        /// </summary>
+        internal static string SecretPeriode {
+            get {
+                return ResourceManager.GetString("SecretPeriode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Please configure your Google Authenticator App by using the QR code below.&lt;br/&gt;
+        ///&lt;a href=&quot;https://uit.no/Oraklet/&quot;&gt;Read this for assistance.&lt;/a&gt;&lt;/p&gt;
         ///&lt;br /&gt;
-        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}&quot;&gt;.
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl={2}&quot;&gt;.
         /// </summary>
         internal static string WebForm_1033 {
             get {
@@ -134,14 +182,23 @@ namespace Raymond.ADFS_MFA.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Vennligst konfigurer din Autentiserings App (Microsoft Verificator, Google Authenticator, et al.) ved å bruke QR koden under.&lt;br/&gt;
-        ///&lt;a href=&quot;https://uit.no/Oraklet/SomeWhere&quot;&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;p&gt;Vennligst konfigurer din Google Authenticator App ved å bruke QR koden under.&lt;br/&gt;
+        ///&lt;a href=&quot;https://uit.no/Oraklet/&quot;&gt;Les her for assistanse.&lt;/a&gt;&lt;/p&gt;
         ///&lt;br /&gt;
-        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl=otpauth%3A%2F%2Ftotp%2FUiT%3A{2}%3Fsecret%3D{3}&quot;&gt;.
+        ///&lt;img width=&quot;{0}&quot; height=&quot;{1}&quot; src=&quot;https://chart.googleapis.com/chart?chs={0}x{1}&amp;chld=M|0&amp;cht=qr&amp;chl={2}&quot;&gt;.
         /// </summary>
         internal static string WebForm_1044 {
             get {
                 return ResourceManager.GetString("WebForm_1044", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to otpauth://totp/{0}{1}?secret={2}&amp;issuer={3}.
+        /// </summary>
+        internal static string WebFormSecret {
+            get {
+                return ResourceManager.GetString("WebFormSecret", resourceCulture);
             }
         }
     }
